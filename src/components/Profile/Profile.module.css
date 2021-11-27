@@ -9,8 +9,9 @@
   font-weight: 500;
   text-align: center;
 }
-.img{
+.img {
   display: inline-block;
+
   justify-content: center;
   max-width: 120px;
   background-color: darkkhaki;
