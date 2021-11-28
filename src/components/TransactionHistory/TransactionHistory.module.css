@@ -1,0 +1,11 @@
+.transactionHistory {
+  width: 100%;
+}
+.column {
+  background-color: aqua;
+  padding: 15px 0;
+}
+.row {
+  text-align: center;
+  padding: 15px 0;
+}
