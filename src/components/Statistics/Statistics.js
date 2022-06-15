@@ -1,25 +1,35 @@
-import s from './Statistics.module.css';
+// import s from './Statistics.module.css';
+import {
+  ProfileSection,
+  ProfileTitle,
+  ProfileStatsList,
+  ProfileStatsItem,
+  ProfileStatsItemlabel,
+  ProfileStatsItemPercentage,
+} from './Statistics.styled';
 import PropTypes from 'prop-types';
 
 export default function Statistics({ title, stats }) {
   return (
-    <section className={s.statistics}>
-      {title && <h2 className={s.title}>{title}</h2>}
+    <ProfileSection>
+      {title && <ProfileTitle>{title}</ProfileTitle>}
 
-      <ul className={s.statList}>
+      <ProfileStatsList>
         {stats.map(item => (
-          <li key={item.id} className={s.item}>
-            <span className={s.label}>{item.label}</span>
-            <span className={s.percentage}>{item.percentage}</span>
-          </li>
+          <ProfileStatsItem key={item.id}>
+            <ProfileStatsItemlabel>{item.label}</ProfileStatsItemlabel>
+            <ProfileStatsItemPercentage>
+              {item.percentage} %
+            </ProfileStatsItemPercentage>
+          </ProfileStatsItem>
         ))}
-      </ul>
-    </section>
+      </ProfileStatsList>
+    </ProfileSection>
   );
 }
 
 Statistics.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

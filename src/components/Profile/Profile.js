@@ -1,33 +1,46 @@
 import PropTypes from 'prop-types';
-import s from './Profile.module.css';
+// import s from './Profile.module.css';
+import {
+  ProfileBox,
+  ProfileDescription,
+  ProfileBoxImg,
+  ProfileImg,
+  ProfileName,
+  ProfileTag,
+  ProfileLocation,
+  ProfileStatsList,
+  ProfileStatsItem,
+  ProfileStatsLabel,
+  ProfileStatsQuantity,
+} from './Profile.styled';
 
 function Profile({ username, tag, location, avatar, stats }) {
   return (
-    <div className={s.profile}>
-      <div className={s.description}>
-        <div className={s.img}>
-          <img src={avatar} alt={username} className={s.avatar} />
-        </div>
-        <p className={s.name}>{username}</p>
-        <p className={s.tag}>@{tag}</p>
-        <p className={s.location}>{location}</p>
-      </div>
+    <ProfileBox>
+      <ProfileDescription>
+        <ProfileBoxImg ProfileBoxImg>
+          <ProfileImg src={avatar} alt={username} />
+        </ProfileBoxImg>
+        <ProfileName>{username}</ProfileName>
+        <ProfileTag>@{tag}</ProfileTag>
+        <ProfileLocation>{location}</ProfileLocation>
+      </ProfileDescription>
 
-      <ul className={s.stats}>
-        <li>
-          <span className={s.label}>Followers</span>
-          <span className={s.quantity}>{stats.followers}</span>
-        </li>
-        <li>
-          <span className={s.label}>Views</span>
-          <span className={s.quantity}>{stats.views}</span>
-        </li>
-        <li>
-          <span className={s.label}>Likes</span>
-          <span className={s.quantity}>{stats.likes}</span>
-        </li>
-      </ul>
-    </div>
+      <ProfileStatsList>
+        <ProfileStatsItem>
+          <ProfileStatsLabel>Followers</ProfileStatsLabel>
+          <ProfileStatsQuantity>{stats.followers}</ProfileStatsQuantity>
+        </ProfileStatsItem>
+        <ProfileStatsItem>
+          <ProfileStatsLabel>Views</ProfileStatsLabel>
+          <ProfileStatsQuantity>{stats.views}</ProfileStatsQuantity>
+        </ProfileStatsItem>
+        <ProfileStatsItem>
+          <ProfileStatsLabel>Likes</ProfileStatsLabel>
+          <ProfileStatsQuantity>{stats.likes}</ProfileStatsQuantity>
+        </ProfileStatsItem>
+      </ProfileStatsList>
+    </ProfileBox>
   );
 }
 export default Profile;

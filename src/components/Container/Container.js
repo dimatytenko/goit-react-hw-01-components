@@ -1,7 +1,8 @@
-import s from './Container.module.css';
+// import s from './Container.module.css';
+import ContainerShell from './Container.styled';
 
 function Container({ children }) {
-  return <div className={s.container}>{children}</div>;
+  return <ContainerShell>{children}</ContainerShell>;
 }
 
 export default Container;
